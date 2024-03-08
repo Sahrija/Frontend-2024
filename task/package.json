@@ -1,0 +1,17 @@
+{
+  "name": "task-pertemuan-2",
+  "version": "1.0.0",
+  "description": "Task Pertemuan 2",
+  "main": "task.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node task.js",
+    "dev": "nodemon task.js"
+  },
+  "keywords": [],
+  "author": "Aufa Billah",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
