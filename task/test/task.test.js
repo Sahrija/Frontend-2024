@@ -30,13 +30,12 @@ describe("# Menjalankan Test: Array of Object Users", () => {
   users &&
     users.forEach((user) => {
       const { name } = user;
-      test(`${
-        name ?? "item"
-      } harus memiliki property name, age, dan major`, () => {
-        keys.forEach((key) => {
-          expect(user).toHaveProperty(key);
+      test(`${name ?? "item"
+        } harus memiliki property name, age, dan major`, () => {
+          keys.forEach((key) => {
+            expect(user).toHaveProperty(key);
+          });
         });
-      });
     });
 });
 
