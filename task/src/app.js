@@ -5,6 +5,8 @@
  */
 // CODE HERE
 
+const {formatUser, findByName, filterByMajor} =  require('./controllers/UserController');
+
 /**
  * Fungsi Main.
  * Jangan edit atau hapus fungsi main.

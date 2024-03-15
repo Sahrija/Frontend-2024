@@ -1,4 +1,4 @@
-import users from "../src/data/users.js";
+const users = require("../src/models/users");
 import {
   formatUser,
   findByName,
