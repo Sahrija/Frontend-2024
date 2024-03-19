@@ -5,7 +5,7 @@
  */
 // CODE HERE
 
-const {formatUser, findByName, filterByMajor} =  require('./controllers/UserController');
+import {formatUser, findByName, filterByMajor} from './controllers/UserController.js';
 
 /**
  * Fungsi Main.

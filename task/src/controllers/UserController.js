@@ -4,7 +4,7 @@
  */
 // CODE HERE
 
-const users = require('../models/users');
+import users from '../models/users.js';
 
 /**
  * SARAN TODO3 - TODO5.
@@ -22,11 +22,10 @@ const users = require('../models/users');
  */
 const formatUser = async (title) => {
     return new Promise((resolve, reject) => {
-        let results = [];
         setTimeout(() => {
-            users.map((user) => {
-                let new_user = {...user, name: `${title} ${user.name}`}
-                results.push(new_user);
+            const results = users.map((user) => {
+                let formattedUser = {...user, name: `${title} ${user.name}`}
+                return formattedUser;
             },)
             resolve(results);
         }, 3000)
@@ -80,4 +79,4 @@ const filterByMajor = (major) => {
  */
 // CODE HERE
 
-module.exports = { formatUser, findByName, filterByMajor };
+export { formatUser, findByName, filterByMajor };

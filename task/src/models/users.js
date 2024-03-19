@@ -33,4 +33,4 @@ const users = [
  */
 // CODE HERE
 
-module.exports = users;
+export default users;
