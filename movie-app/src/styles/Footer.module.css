@@ -1,0 +1,21 @@
+/* small screen */
+.container{
+    background-color: #4361ee;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+.footer__title{
+    margin-bottom: 1rem;
+}
+
+.footer__author{
+    margin-bottom: 1rem;
+}
+
+/* medium screen */
+@media (min-width: 768px) {}
+
+/* large screen */
+@media (min-width: 992px) {}

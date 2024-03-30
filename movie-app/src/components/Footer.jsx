@@ -1,5 +1,12 @@
-export default function Footer(){
+import styles from '../styles/Footer.module.css';
+
+export default function Footer() {
     return (
-        <p> codeTeam&copy;  2024 </p>
+        <div className={styles.container}>
+            <footer className={styles.footer}>
+                <h2 className={styles.footer__title}>Grand Theater</h2>
+                <p className={styles.footer__author}>Created by Ahmad Sahrija</p>
+            </footer>
+        </div>
     )
 }

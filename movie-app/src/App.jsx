@@ -1,14 +1,18 @@
-import Main from "./components/Main"
-import Header from "./components/Header"
-import Footer from "./components/Footer"
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from "./pages/Home";
+import Create from "./pages/movies/Create";
+import Layout from './layouts/Layout';
 
-function App(){
+function App() {
   return (
-    <>  
-      <Header/>
-      <Main/>
-      <Footer/>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path='create' element={<Create />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
