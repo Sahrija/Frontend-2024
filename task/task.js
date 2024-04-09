@@ -4,7 +4,7 @@
  * Object memiliki property: name, age, major.
  * Note: Ubah var menggunakan JavaScript Modern.
  */
-var users = [
+const users = [
   { name: 'Yasuo', age: 26, major: 'Informatics', },
   { name: 'Kayn', age: 20, major: 'Informatics', },
   { name: 'Akali', age: 19, major: 'Information', },
@@ -15,7 +15,8 @@ var users = [
 /**
  * TODO 2
  * Buat function all: Menampilkan semua data user.
- * Hint: Gunakan for/for-of.
+ * Hint: Gunakan `for/for-of`.
+ * 
  * Note: Ubah function menggunakan arrow function.
  */
 const all = () => {
@@ -27,9 +28,12 @@ const all = () => {
 /**
  * TODO 3
  * Buat function store: Menambahkan user baru.
+ * 
+ * @param {{ name: string , age: int, major: string, }} user 
  * Hint: Gunakan method push.
  * Note: Ubah function menggunakan arrow function.
  */
+
 const store = (user) => {
   users.push(user);
 }
@@ -41,7 +45,11 @@ const store = (user) => {
  * Note: Ubah function menggunakan arrow function.
  */
 const update = (index, user) => {
-  users[index] = user;
+  if (isUserExists(index)) {
+    users[index] = user;
+  } else {
+    console.error("ERROR! Cannot edit. User not found")
+  }
 }
 
 /**
@@ -50,8 +58,21 @@ const update = (index, user) => {
  * Hint: Gunakan method splice.
  * Note: Ubah function menggunakan arrow function.
  */
-const destroy = (index) => { 
-  users.splice(index,1)
+const destroy = (index) => {
+  if (isUserExists(index)) {
+    users.splice(index, 1)
+  } else {
+    console.error("ERROR! Cannot delete. User not found")
+  }
+}
+
+/**
+ * 
+ * @param {number} index 
+ * @returns {bool}
+ */
+const isUserExists = (index) => {
+  return users[index] != undefined;
 }
 
 /**
@@ -93,7 +114,7 @@ const main = () => {
   /**
    * Test function destroy
    */
-  console.log("# Delete User: Nurul");
+  console.log("# Delete User: Akali");
   const deletedIndex = 2;
   destroy(deletedIndex);
 };
