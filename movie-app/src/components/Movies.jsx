@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import {nanoid} from 'nanoid';
 import styles from '../styles/Movies.module.css';
 
 import data from '../../utils/constants/data';
@@ -10,7 +11,7 @@ export default function Movies() {
 
     function handleClick() {
         setMovies(
-            [...movies, { id: '9289382983', title: 'Arcane Season 2', year: 2024, type: 'movie', poster: 'https://i.ytimg.com/vi/7TfnA1PBbSY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBZqh1pkTGeJlmCtka9we0YHL9Bfg' }]
+            [...movies, { id: nanoid(), title: 'Arcane Season 2', year: 2024, type: 'movie', poster: 'https://i.ytimg.com/vi/7TfnA1PBbSY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBZqh1pkTGeJlmCtka9we0YHL9Bfg' }]
         )
     }
 
