@@ -1,11 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+.container {
+    background: #edf4fc;
+    padding: 1rem 2rem;
+}
+
+.header {
+    text-align: center;
+    color: #4361ee;
+}
+
 .form {
-    margin: 20px;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .form__left {
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form__right {
@@ -23,18 +37,17 @@
 }
 
 .form__input {
-    background-color: gainsboro;
+    background-color: white;
     font-size: large;
     border: none;
     border-radius: 10px;
     outline: none;
     padding: 10px;
+    font-family: "Kanit";
 }
 
-input,
-textarea,
-button {
-    font-family: "Kanit";
+.form__input:focus {
+    outline: 2px solid #4361ee;
 }
 
 .form__input_file_hidden {
@@ -42,18 +55,29 @@ button {
 }
 
 .form__input_file_label {
-    height: 300px;
     max-width: 100%;
-    border: dashed 5px gainsboro;
+    width: 300px;
+    height: 444px;
+    max-height: fit-content;
+    min-width: fit-content;
+    border: dashed 5px #bec3db;
+    background: white;
     border-style: dashed;
     border-radius: 20px;
     display: flex;
+    overflow: hidden;
 
     align-items: center;
     justify-content: center;
     font-size: large;
+    cursor: url(/cursor-plus.svg), auto;
 }
 
+.form__image_preview{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 
 /* medium screen */
@@ -71,8 +95,14 @@ button {
     background-color: #4361ee;
     color: white;
     cursor: pointer;
+    font-family: "Kanit";
 }
 
-.form__button:hover{
+.form__button:hover {
     background-color: #2442c7;
+}
+
+.form__button:focus {
+    outline: 2px solid #4361ee;
+    outline-offset: 3px;
 }

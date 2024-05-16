@@ -1,19 +1,9 @@
-import { useState } from 'react';
-import {nanoid} from 'nanoid';
 import styles from './Movies.module.css';
 
-import data from '../../../utils/constants/data';
 
 import Movie from '../Movie/Movie';
 
-export default function Movies() {
-    const [movies, setMovies] = useState(data);
-
-    function handleClick() {
-        setMovies(
-            [...movies, { id: nanoid(), title: 'Arcane Season 2', year: 2024, type: 'movie', poster: 'https://i.ytimg.com/vi/7TfnA1PBbSY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBZqh1pkTGeJlmCtka9we0YHL9Bfg' }]
-        )
-    }
+export default function Movies({movies}) {
 
     return (
         <div className={styles.container}>
@@ -29,7 +19,7 @@ export default function Movies() {
                     })}
                 </div>
             </section>
-            <button onClick={handleClick}>Add movie</button>
+            {/* <button onClick={handleClick}>Add movie</button> */}
         </div>
     );
 }
