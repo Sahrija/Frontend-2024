@@ -1,4 +1,4 @@
-import styles from '../styles/Movies.module.css';
+import styles from '../Movies/Movies.module.css';
 
 export default function Movie(props) {
     let { title, img_url } = props;

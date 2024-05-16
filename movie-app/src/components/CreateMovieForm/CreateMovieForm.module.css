@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.form {
+    margin: 20px;
+}
+
+.form__left {
+    flex: 1;
+}
+
+.form__right {
+    flex: 1;
+}
+
+.form__input_group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__label {
+    font-size: large;
+}
+
+.form__input {
+    background-color: gainsboro;
+    font-size: large;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    padding: 10px;
+}
+
+input,
+textarea,
+button {
+    font-family: "Kanit";
+}
+
+.form__input_file_hidden {
+    display: none;
+}
+
+.form__input_file_label {
+    height: 300px;
+    max-width: 100%;
+    border: dashed 5px gainsboro;
+    border-style: dashed;
+    border-radius: 20px;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+}
+
+
+
+/* medium screen */
+@media (min-width: 768px) {
+    .form {
+        display: flex;
+        gap: 30px;
+    }
+}
+
+/* large screen */
+@media (min-width: 992px) {}
+
+.form__button {
+    background-color: #4361ee;
+    color: white;
+    cursor: pointer;
+}
+
+.form__button:hover{
+    background-color: #2442c7;
+}

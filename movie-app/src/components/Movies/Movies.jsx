@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import {nanoid} from 'nanoid';
-import styles from '../styles/Movies.module.css';
+import styles from './Movies.module.css';
 
-import data from '../../utils/constants/data';
+import data from '../../../utils/constants/data';
 
-import Movie from './Movie';
+import Movie from '../Movie/Movie';
 
 export default function Movies() {
     const [movies, setMovies] = useState(data);

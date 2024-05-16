@@ -1,11 +1,13 @@
-import Hero from "../components/Hero"
-import Movies from "../components/Movies"
+import CreateMovieForm from "../components/CreateMovieForm/CreateMovieForm"
+import Hero from "../components/Hero/Hero"
+import Movies from "../components/Movies/Movies"
 
 export default function Home() {
     return (
         <>
             <Hero />
             <Movies />
+            <CreateMovieForm />
         </>
     )
 }
