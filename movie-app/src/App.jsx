@@ -1,7 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from "./pages/Home";
-import Create from "./pages/movies/Create";
 import Layout from './layouts/Layout';
+
+// pages
+import Create from "./pages/movies/Create";
+import Popular from './pages/movies/Popular';
+import NowPlaying from './pages/movies/NowPlaying';
+import TopRated from './pages/movies/TopRated';
 
 function App() {
   return (
@@ -9,7 +14,13 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path='create' element={<Create />} />
+          <Route path='movies' >
+            <Route index element={<Home />} />
+            <Route path='create' element={<Create />}></Route>
+            <Route path='popular' element={<Popular />}></Route>
+            <Route path='now-playing' element={<NowPlaying />}></Route>
+            <Route path='top-rated' element={<TopRated />}></Route>
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

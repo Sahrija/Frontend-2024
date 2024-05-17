@@ -1,3 +1,11 @@
+/**
+    TODO data
+    - [ ] add rating for each item
+    - [ ] add description for each item
+    - [ ] add status for each item
+    - [ ] add genre for each item
+ */
+
 const data = [
     {
         id: "tt10872600",

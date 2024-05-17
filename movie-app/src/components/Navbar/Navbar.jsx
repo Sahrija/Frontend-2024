@@ -11,10 +11,10 @@ export default function Navbar() {
         <div>
           <ul className={styles.navbar__list}>
             <li className={styles.navbar__item}><Link to={"/"}>Home</Link></li>
-            <li className={styles.navbar__item}><Link to={"/create"}>Add Movie</Link></li>
-            <li className={styles.navbar__item}>Popular</li>
-            <li className={styles.navbar__item}>Now Playing</li>
-            <li className={styles.navbar__item}>Top Rated</li>
+            <li className={styles.navbar__item}><Link to={"/movies/create"}>Add Movie</Link></li>
+            <li className={styles.navbar__item}><Link to={'/movies/popular'}>Popular</Link></li>
+            <li className={styles.navbar__item}><Link to={'/movies/now-playing'}>Now Playing</Link></li>
+            <li className={styles.navbar__item}><Link to={'/movies/top-rated'}>Top Rated</Link></li>
           </ul>
         </div>
       </nav>
