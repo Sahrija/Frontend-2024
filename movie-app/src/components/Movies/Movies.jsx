@@ -13,13 +13,11 @@ export default function Movies({movies}) {
                     {movies.map((movie) => {
                         return <Movie
                             key={movie.id}
-                            title={movie.title}
-                            img_url={movie.poster}
+                            movie={movie}
                         />
                     })}
                 </div>
             </section>
-            {/* <button onClick={handleClick}>Add movie</button> */}
         </div>
     );
 }
