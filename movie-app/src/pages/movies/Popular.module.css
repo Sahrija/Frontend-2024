@@ -1,0 +1,12 @@
+.container{
+    margin: auto;
+    max-width: 1400px;
+    padding: 2rem;
+}
+
+.grid{
+    /* background: red; */
+    display: grid;
+    grid-template-columns:  repeat(auto-fill, minmax(200px, 1fr)) ;
+    /* gap: 0.5rem;     */
+}

@@ -4,9 +4,9 @@ import Movies from "../components/Movies/Movies"
 import data from "../../utils/constants/data"
 import { useState } from "react";
 
-export default function Home() {
+export default function Home({moviesState}) {
 
-    const [movies, setMovies] = useState(data);
+    const [movies, setMovies] = moviesState;
     
     return (
         <>
