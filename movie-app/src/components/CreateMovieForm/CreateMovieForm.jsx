@@ -9,17 +9,21 @@ export default function CreateMovieForm({ moviesState }) {
   const [title, setTitle] = useState('');
   const [year, setYear] = useState(0);
   const [posterUrl, setPosterUrl] = useState('');
+  const [genre, setGenre] = useState('');
 
   
 
   function submitHandler() {
     event.preventDefault();
 
-    createNewMovie(title, year, posterUrl, movies, setMovies)
+    createNewMovie(title, year, genre, posterUrl, movies, setMovies)
 
     setTitle('');
     setYear(0);
     setPosterUrl('');
+    setGenre('');
+
+    console.log(movies)
   }
 
   return (
@@ -50,9 +54,19 @@ export default function CreateMovieForm({ moviesState }) {
               <label className={styles.form__label} htmlFor="posterUrl">Poster Url</label>
               <input className={styles.form__input} type="text" name="posterUrl" id="posterUrl" required onChange={(e) => setPosterUrl(e.target.value)} value={posterUrl} />
             </div>
+            {/* input genre */}
             <div className={styles.form__input_group}>
-              <label className={styles.form__label} htmlFor="title">Description</label>
-              <textarea className={styles.form__input} type="text" name="description" id="title" rows={5}></textarea>
+              <label className={styles.form__label} htmlFor="genre">Genre</label>
+              <select className={styles.form__input} name="genre" id="genre" 
+              value={genre} onChange={e=>setGenre(e.target.value)}>
+                <option value="">-- select a genre --</option>
+                <option value="action">Action</option>
+                <option value="adventure">Adventure</option>
+                <option value="drama">Drama</option>
+                <option value="horor">Horor</option>
+                <option value="sci-fi">Sci-fi</option>
+                <option value="super hero">Super Hero</option>
+              </select>
             </div>
             <button className={styles.form__button} type="submit">Add New Movie</button>
           </div>
@@ -62,12 +76,12 @@ export default function CreateMovieForm({ moviesState }) {
   )
 }
 
-function createNewMovie(title, year, posterUrl, movies, setMovies) {
+function createNewMovie(title, year, genre, posterUrl, movies, setMovies) {
   const newMovie = {
     id: nanoid(),
     title: title,
     year: year,
-    type: "movie",
+    type: genre,
     poster:
       posterUrl,
   }
