@@ -21,6 +21,9 @@
     flex-direction: column;
     list-style: none;
     gap: 1rem;
+    margin: 0;
+
+    height: 0;
 }
 
 .navbar__item {
@@ -44,6 +47,8 @@
     }
 
     .navbar__list {
+        height: auto;
+        display: flex;
         flex-direction: row;
     }
 

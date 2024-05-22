@@ -27,7 +27,7 @@
 }
 
 .form__input_group {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     display: flex;
     flex-direction: column;
 }
