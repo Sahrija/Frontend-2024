@@ -13,17 +13,17 @@ import NowPlaying from './pages/movies/NowPlaying';
 import TopRated from './pages/movies/TopRated';
 
 function App() {
-  const moviesState = useState(data)
+  const [movies, setMovies] = useState(data)
   
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<Home moviesState={moviesState}/>} />
+          <Route index element={<Home movies={movies} setMovies={setMovies}/>} />
           <Route path='movies' >
-            <Route index element={<Home moviesState={moviesState}/>} />
+            <Route index element={<Home movies={movies} setMovies={setMovies}/>} />
             <Route path='create' element={<Create />}></Route>
-            <Route path='popular' element={<Popular moviesState={moviesState}/>}></Route>
+            <Route path='popular' element={<Popular movies={movies} setMovies={setMovies}/>}></Route>
             <Route path='now-playing' element={<NowPlaying />}></Route>
             <Route path='top-rated' element={<TopRated />}></Route>
           </Route>

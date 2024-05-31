@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import styles from './Hero.module.css'
+import HeroImage from '../Home/HeroImage';
 
 export default function Hero() {
 
-    const [isPlaying, setIsPlaying] = useState(false)
-    const dialogRef = useRef(null)
+    const [isPlaying, setIsPlaying] = useState(false);
+    const dialogRef = useRef(null);
 
     function toggleTrailerModal() {
         setIsPlaying(!isPlaying)
@@ -15,7 +16,7 @@ export default function Hero() {
             dialogRef.current.showModal();
         } else {
             dialogRef.current.close();
-            
+
             // TODO: stop the video trailer on dialog close
         }
     }, [isPlaying])
@@ -33,25 +34,25 @@ export default function Hero() {
                         A movie by League of Legends
                     </p>
                     <button onClick={toggleTrailerModal} className={styles.hero__button}>
-                        Watch trailer
+                        Watch trailer <img width={10} src="/play.png" alt="" />
                     </button>
                 </div>
                 <div className={styles.hero__right}>
 
-                    <img
-                        className={styles.hero__image}
-                        src="https://esports.id/img/content/21320220315070855.jpeg"
-                        alt="image"
-                    />
+                    <HeroImage className={styles.hero__image}/>
 
                     <dialog ref={dialogRef}>
                         <div onClick={toggleTrailerModal} className={styles.modal_dialog_trailer}>
-                            <iframe
-                                width="560" height="315"
+                            {isPlaying? 
+                                <iframe 
+                                className={styles.modal_trailer_video}
                                 src="https://www.youtube.com/embed/fXmAurh012s?si=3Mu71oLutU117v32"
                                 title="YouTube video player"
                                 allow=""
-                                referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                                referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe> 
+                            : 
+                                ""
+                            }
                         </div>
                     </dialog>
 
@@ -60,3 +61,9 @@ export default function Hero() {
         </div>
     );
 }
+
+// function VideoIframe() {
+//     return (
+        
+//     )
+// }

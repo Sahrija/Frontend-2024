@@ -1,9 +1,8 @@
 import Movie from "../../components/Movie/Movie";
 import styles from './Popular.module.css';
 
-export default function Popular({ moviesState }) {
-    const [movies] = moviesState;
-
+export default function Popular({movies, setMovies}) {
+    
     return (
         <section className={styles.container}>
             <header className=''>
