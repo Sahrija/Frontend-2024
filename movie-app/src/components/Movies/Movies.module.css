@@ -14,6 +14,13 @@
     color: #4361ee;
 }
 
+.movies__title::before{
+    content: '';
+    background: red;
+    inset: 10px;
+    width: auto;
+}
+
 .movie__container {
     display: flex;
     flex-direction: column;
@@ -30,8 +37,37 @@
     border-radius: 25px;
     max-width: 100%;
     height: auto;
-    margin-bottom: 1rem;
 }
+
+.movie__image_container{
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+}
+.movie__image_container img{
+    transition: scale 0.2s linear;
+    
+    &:hover{
+        scale: 1.05;
+    }
+}
+
+
+.movie__image_container::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 0, 0, 0.148);
+    position: absolute;
+    border-radius: 20px;
+    z-index: -1;
+    rotate: 0;
+    transition: rotate .2s linear;
+}
+.movie__image_container:hover::before {
+    rotate: 20deg;
+}
+
 
 .movie__title {
     color: #4361ee;

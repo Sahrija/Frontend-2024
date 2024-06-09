@@ -31,7 +31,7 @@
 }
 
 .navbar__item>a {
-    color: white;
+    color: inherit;
 }
 
 /* medium screen */
