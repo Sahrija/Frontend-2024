@@ -6,11 +6,7 @@ import ValidityMessage from '../Form/ValidityMessage';
 export default function CreateMovieForm({ moviesState }) {
 
   const [movies, setMovies] = moviesState;
-
-  const [title, setTitle] = useState('');
-  const [year, setYear] = useState(0);
-  const [posterUrl, setPosterUrl] = useState('');
-  const [genre, setGenre] = useState('');
+  const defaultPoster = 'https://dummyimage.com/291.100x435.104/e0e0e0/696969';
 
   const [inputs, setInputs] = useState(
     {
@@ -38,7 +34,7 @@ export default function CreateMovieForm({ moviesState }) {
     const isValueEmpty = value === ''
 
     // TODO: check if the image is exist
-    
+
     setInputs({
       ...inputs,
       [name]: {
@@ -48,17 +44,35 @@ export default function CreateMovieForm({ moviesState }) {
     })
   }
 
+  function createNewMovie(title, year, genre, posterUrl) {
+    const newMovie = {
+      id: nanoid(),
+      title: title,
+      year: year,
+      type: genre,
+      poster:
+        posterUrl,
+    }
+
+    setMovies(
+      [...movies, newMovie]
+    )
+  }
+
+  function resetFormInputs() {
+    inputs.title.value = '';
+    inputs.year.value = 0;
+    inputs.posterUrl.value = '';
+    inputs.genre.value = '';
+  }
+
   function submitHandler() {
     event.preventDefault();
+    const { title, year, genre, posterUrl } = inputs;
 
-    createNewMovie(title, year, genre, posterUrl, movies, setMovies)
+    createNewMovie(title.value, year.value, genre.value, posterUrl.value)
 
-    setTitle('');
-    setYear(0);
-    setPosterUrl('');
-    setGenre('');
-
-    console.log(movies)
+    resetFormInputs();
   }
 
   return (
@@ -70,7 +84,7 @@ export default function CreateMovieForm({ moviesState }) {
         <form onSubmit={submitHandler} className={styles.form} action="">
           <div className={styles.form__left}>
             <label htmlFor="image" className={styles.form__input_file_label}
-            ><img src={posterUrl} alt="image preview" className={styles.form__image_preview} /></label>
+            ><img src={inputs.posterUrl.value || defaultPoster} alt="image preview" className={styles.form__image_preview} /></label>
             {/* <input className={styles.form__input_file_hidden} type="file" accept='image/*' name="" id="image" /> */}
           </div>
           <div className={styles.form__right}>
@@ -131,20 +145,5 @@ export default function CreateMovieForm({ moviesState }) {
         </form>
       </section>
     </>
-  )
-}
-
-function createNewMovie(title, year, genre, posterUrl, movies, setMovies) {
-  const newMovie = {
-    id: nanoid(),
-    title: title,
-    year: year,
-    type: genre,
-    poster:
-      posterUrl,
-  }
-
-  setMovies(
-    [...movies, newMovie]
   )
 }
