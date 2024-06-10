@@ -12,7 +12,6 @@ const colorsHover = {
     tertiary: '#c9c9c9'
 }
 
-
 const Button = styled.button`
     padding: 0.8rem 2rem;
     border: none;
@@ -33,4 +32,5 @@ const Button = styled.button`
     /* full */
     width: ${(props) => props.full ? '100%' : 'fit-content'};
 `;
+
 export default Button;
