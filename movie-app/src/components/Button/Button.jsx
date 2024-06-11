@@ -1,22 +1,6 @@
 import styled, { css } from 'styled-components'
 
-const style = {
-    colors: {
-        primary: '#4361ee',
-        secondary: '#b5179e',
-        tertiary: '#c9c9c9'
-    },
-    hoverColors: {
-        primary: '#2e4cd4',
-        secondary: '#940e80',
-        tertiary: '#c9c9c9'
-    },
-    foregroundColors: {
-        primary: '#ffffff',
-        secondary: '#ffffff',
-        tertiary: '#000000'
-    }
-}
+import theme from '../../../utils/constants/theme';
 
 
 const Button = styled.button`
@@ -29,11 +13,11 @@ const Button = styled.button`
 
 
     /* variant */
-    background-color: ${({variant}) => style.colors[variant] || style.colors.primary};
+    background-color: ${({variant}) => theme.colors[variant] || theme.colors.primary};
     &:hover{
-        background-color: ${({variant}) => style.hoverColors[variant] || style.hoverColors.primary}
+        background-color: ${({variant}) => theme.hoverColors[variant] || theme.hoverColors.primary}
     };
-    color: ${({variant}) => style.foregroundColors[variant] || style.foregroundColors.primary};
+    color: ${({variant}) => theme.foregroundColors[variant] || theme.foregroundColors.primary};
 
     /* full */
     width: ${(props) => props.full ? '100%' : 'fit-content'};
