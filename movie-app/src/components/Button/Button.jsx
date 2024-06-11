@@ -33,7 +33,7 @@ const Button = styled.button`
     &:hover{
         background-color: ${({variant}) => style.hoverColors[variant] || style.hoverColors.primary}
     };
-    color: ${({variant}) => style.foregroundColor[variant] || style.foregroundColors.primary};
+    color: ${({variant}) => style.foregroundColors[variant] || style.foregroundColors.primary};
 
     /* full */
     width: ${(props) => props.full ? '100%' : 'fit-content'};
