@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const style = {
     colors: {
@@ -29,11 +29,9 @@ const Button = styled.button`
 
 
     /* variant */
-    background-color: ${function (props) {
-        return style.colors[props.variant]
-    }};
+    background-color: ${({variant}) => style.colors[variant] || style.colors.primary};
     &:hover{
-        background-color: ${(props) => style.hoverColors[props.variant]}
+        background-color: ${({variant}) => style.hoverColors[variant] || style.hoverColors.primary}
     };
 
     /* full */
