@@ -27,6 +27,15 @@
     margin-bottom: 1rem;
 }
 
+.hero__button {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #4361ee;
+    color: #fff;
+    cursor: pointer;
+}
+
 .hero__button:hover {
     background-color: #2e4dd4;
 }

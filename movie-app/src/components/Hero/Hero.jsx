@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import styles from './Hero.module.css'
 import HeroImage from '../Home/HeroImage';
-import Button from '../Button/Button';
 
 export default function Hero() {
 
@@ -34,27 +33,24 @@ export default function Hero() {
                     <p className={styles.hero__description}>
                         A movie by League of Legends
                     </p>
-                    <Button
-                        onClick={toggleTrailerModal}
-                        variant='primary'
-                    >
+                    <button onClick={toggleTrailerModal} className={styles.hero__button}>
                         Watch trailer <img width={10} src="/play.png" alt="" />
-                    </Button>
+                    </button>
                 </div>
                 <div className={styles.hero__right}>
 
-                    <HeroImage className={styles.hero__image} />
+                    <HeroImage className={styles.hero__image}/>
 
                     <dialog ref={dialogRef}>
                         <div onClick={toggleTrailerModal} className={styles.modal_dialog_trailer}>
-                            {isPlaying ?
-                                <iframe
-                                    className={styles.modal_trailer_video}
-                                    src="https://www.youtube.com/embed/fXmAurh012s?si=3Mu71oLutU117v32"
-                                    title="YouTube video player"
-                                    allow=""
-                                    referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-                                :
+                            {isPlaying? 
+                                <iframe 
+                                className={styles.modal_trailer_video}
+                                src="https://www.youtube.com/embed/fXmAurh012s?si=3Mu71oLutU117v32"
+                                title="YouTube video player"
+                                allow=""
+                                referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe> 
+                            : 
                                 ""
                             }
                         </div>
@@ -65,3 +61,9 @@ export default function Hero() {
         </div>
     );
 }
+
+// function VideoIframe() {
+//     return (
+        
+//     )
+// }
