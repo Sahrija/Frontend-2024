@@ -1,8 +1,5 @@
 import styled, { css } from 'styled-components'
 
-import theme from '../../../utils/constants/theme';
-
-
 const Button = styled.button`
     padding: 0.8rem 2rem;
     border: none;
@@ -13,13 +10,14 @@ const Button = styled.button`
 
 
     /* variant */
-    background-color: ${({variant}) => theme.colors[variant] || theme.colors.primary};
+    background-color: ${(props) => props.theme.colors[props.variant] || props.theme.colors.primary};
     &:hover{
-        background-color: ${({variant}) => theme.hoverColors[variant] || theme.hoverColors.primary}
+        background-color: ${(props) => props.theme.hoverColors[props.variant] || props.theme.hoverColors.primary}
     };
-    color: ${({variant}) => theme.foregroundColors[variant] || theme.foregroundColors.primary};
+    color: ${(props) => props.theme.foregroundColors[props.variant] || props.theme.foregroundColors.primary};
 
     /* full */
     width: ${(props) => props.full ? '100%' : 'fit-content'};
 `;
+
 export default Button;

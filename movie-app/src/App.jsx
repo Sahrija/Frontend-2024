@@ -20,8 +20,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<Home movies={movies} setMovies={setMovies} />} />
             <Route path='movies' >
@@ -32,8 +32,8 @@ function App() {
               <Route path='top-rated' element={<TopRated />}></Route>
             </Route>
           </Route>
-        </ThemeProvider>
-      </Routes>
+        </Routes>
+      </ThemeProvider>
     </BrowserRouter>
   )
 }
