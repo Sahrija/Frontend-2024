@@ -1,15 +1,21 @@
 import styled from 'styled-components'
 
-const colors = {
-    primary: '#4361ee',
-    secondary: '#b5179e',
-    tertiary: '#c9c9c9'
-}
-
-const colorsHover = {
-    primary: '#2e4cd4',
-    secondary: '#940e80',
-    tertiary: '#c9c9c9'
+const style = {
+    colors: {
+        primary: '#4361ee',
+        secondary: '#b5179e',
+        tertiary: '#c9c9c9'
+    },
+    hoverColors: {
+        primary: '#2e4cd4',
+        secondary: '#940e80',
+        tertiary: '#c9c9c9'
+    },
+    foregroundColor: {
+        primary: '#ffffff',
+        secondary: '#ffffff',
+        tertiary: '#000000'
+    }
 }
 
 
@@ -24,10 +30,10 @@ const Button = styled.button`
 
     /* variant */
     background-color: ${function (props) {
-        return colors[props.variant]
+        return style.colors[props.variant]
     }};
     &:hover{
-        background-color: ${(props) => colorsHover[props.variant]}
+        background-color: ${(props) => style.hoverColors[props.variant]}
     };
 
     /* full */
