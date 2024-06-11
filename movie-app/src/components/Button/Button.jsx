@@ -11,7 +11,7 @@ const style = {
         secondary: '#940e80',
         tertiary: '#c9c9c9'
     },
-    foregroundColor: {
+    foregroundColors: {
         primary: '#ffffff',
         secondary: '#ffffff',
         tertiary: '#000000'
@@ -33,6 +33,7 @@ const Button = styled.button`
     &:hover{
         background-color: ${({variant}) => style.hoverColors[variant] || style.hoverColors.primary}
     };
+    color: ${({variant}) => style.foregroundColor[variant] || style.foregroundColors.primary};
 
     /* full */
     width: ${(props) => props.full ? '100%' : 'fit-content'};
