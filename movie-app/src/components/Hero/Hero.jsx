@@ -37,6 +37,7 @@ export default function Hero() {
                     <Button
                         onClick={toggleTrailerModal}
                         variant='primary'
+                        size='lg'
                     >
                         Watch trailer <img width={10} src="/play.png" alt="" />
                     </Button>

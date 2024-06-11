@@ -18,6 +18,33 @@ const Button = styled.button`
 
     /* full */
     width: ${(props) => props.full ? '100%' : 'fit-content'};
+
+    /* size */
+    ${(props) => props.theme.size[props.size] || props.theme.size.md}
+
+    /* disabled */
+    ${(props) => props.disabled && css`
+        opacity: 0.5;
+        cursor: not-allowed;
+    `}
+
+    /* loading */
+    ${(props) => props.loading && css`
+        opacity: 0.5;
+        cursor: not-allowed;
+    `}
+
+    /* icon */
+    ${(props) => props.icon && css`
+        padding-right: 1rem;
+    `}
+
+    /* icon position */
+    ${(props) => props.iconPosition === 'left' && css`
+        padding-left: 1rem;
+    `}
+
+    /* icon position */
 `;
 
 export default Button;
