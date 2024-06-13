@@ -124,9 +124,12 @@ export default function CreateMovieForm({ moviesState }) {
             {/* input genre */}
             <div className={styles.form__input_group}>
               <label className={styles.form__label} htmlFor="genre">Genre</label>
-              <select className={styles.form__input} name="genre" id="genre"
+              <select
+                className={styles.form__input} 
+                name="genre" id="genre"
                 value={inputs.genre.value}
                 onChange={handleChange}
+                required
               >
                 <option value="">-- select a genre --</option>
                 <option value="action">Action</option>
