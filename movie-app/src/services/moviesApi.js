@@ -14,21 +14,17 @@ const config = {
 export async function fetchPopularMovies(page = 1) {
   const URL = `${BASE_URL}/popular?language=en-US&page=${page}`;
   const response = await axios(URL, config);
-  console.log(response);
-  
   return response.data.results;
 }
 
 export async function fetchTopRatedMovies(page = 1) {
   const URL = `${BASE_URL}/upcoming?language=en-US&page=${page}`;
   const response = await axios(URL, config);
-  console.log(response);
   return response.data.results;
 }
 
 export async function fetchUpcomingMovies(page = 1) {
   const URL = `${BASE_URL}/upcoming?language=en-US&page=${page}`;
   const response = await axios(URL, config);
-  console.log(response);
   return response.data.results;
 }
