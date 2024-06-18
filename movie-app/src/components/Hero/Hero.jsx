@@ -2,11 +2,16 @@ import { useEffect, useRef, useState } from 'react'
 import styles from './Hero.module.css'
 import HeroImage from '../Home/HeroImage';
 import Button from '../Button/Button';
+import axios from 'axios';
 
 export default function Hero() {
 
     const [isPlaying, setIsPlaying] = useState(false);
     const dialogRef = useRef(null);
+
+    const [movie, setMovie] = useState({})
+    const genres = movie.genres && movie.genres.map((genre) => genre.name).join(", ");
+    const idTrailer = movie.videos && movie.videos.results[0].key;
 
     function toggleTrailerModal() {
         setIsPlaying(!isPlaying)
@@ -21,6 +26,32 @@ export default function Hero() {
             // TODO: stop the video trailer on dialog close
         }
     }, [isPlaying])
+
+    useEffect(() => {
+        const API_KEY = import.meta.env.VITE_API_KEY;
+
+        async function fetchTrendingMovies() {
+            const url = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
+            const response = await axios(url);
+            const firstMovie = response.data.results[0];
+
+            return firstMovie;
+        }
+
+        async function fetchDetailTrendingMovie() {
+            const trendingMovie = await fetchTrendingMovies();
+            const id = trendingMovie.id;
+
+            const params = `?api_key=${API_KEY}&append_to_response=videos`;
+            const url = `https://api.themoviedb.org/3/movie/${id}${params}`;
+            const response = await axios(url);
+
+            setMovie(response.data);
+        }
+
+        fetchDetailTrendingMovie();
+
+    }, []);
 
     return (
 
