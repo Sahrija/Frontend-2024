@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import styles from './Hero.module.css'
-import HeroImage from '../Home/HeroImage';
 import Button from '../Button/Button';
 import axios from 'axios';
 
@@ -12,6 +11,9 @@ export default function Hero() {
     const [movie, setMovie] = useState({})
     const genres = movie.genres && movie.genres.map((genre) => genre.name).join(", ");
     const idTrailer = movie.videos && movie.videos.results[0].key;
+
+    const leadingBackdropUrl = 'https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces'
+    const leadingPosterUrl = 'https://media.themoviedb.org/t/p/w600_and_h900_bestv2/'
 
     function toggleTrailerModal() {
         setIsPlaying(!isPlaying)
@@ -47,6 +49,9 @@ export default function Hero() {
             const response = await axios(url);
 
             setMovie(response.data);
+            console.log('====================================');
+            console.log(response.data);
+            console.log('====================================');
         }
 
         fetchDetailTrendingMovie();
@@ -55,7 +60,8 @@ export default function Hero() {
 
     return (
 
-        <div className={styles.container}>
+        <div className={styles.container}
+            style={{ backgroundImage: `url(${leadingBackdropUrl + movie.backdrop_path})` }}>
             <section className={styles.hero}>
                 <div className={styles.hero__left}>
                     <h2 className={styles.hero__title}>{movie.title}</h2>
@@ -69,20 +75,28 @@ export default function Hero() {
                         onClick={toggleTrailerModal}
                         variant='primary'
                         size='lg'
+                        full
                     >
                         Watch trailer <img width={10} src="/play.png" alt="" />
                     </Button>
                 </div>
                 <div className={styles.hero__right}>
 
-                    <HeroImage className={styles.hero__image} />
+                    <div className={styles.hero__image_container}>
+                        <img
+                            // src={leadingBackdropUrl + movie.backdrop_path}
+                            src={leadingPosterUrl + movie.poster_path}
+                            alt=''
+                            className={styles.hero__image}
+                        />
+                    </div>
 
                     <dialog ref={dialogRef}>
                         <div onClick={toggleTrailerModal} className={styles.modal_dialog_trailer}>
                             {isPlaying ?
                                 <iframe
                                     className={styles.modal_trailer_video}
-                                    src="https://www.youtube.com/embed/fXmAurh012s?si=3Mu71oLutU117v32"
+                                    src={`https://www.youtube.com/embed/${idTrailer}?si=3Mu71oLutU117v32`}
                                     title="YouTube video player"
                                     allow=""
                                     referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
