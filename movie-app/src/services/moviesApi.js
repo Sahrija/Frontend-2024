@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const READ_ACCESS_TOKEN = import.meta.env.VITE_API_READ_ACCESS_TOKEN;
 const BASE_URL = 'https://api.themoviedb.org/3/movie';
-
+ 
 const config = {
   method: 'GET',
   headers: {
