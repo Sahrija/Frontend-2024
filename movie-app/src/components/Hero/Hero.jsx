@@ -49,9 +49,6 @@ export default function Hero() {
             const response = await axios(url);
 
             setMovie(response.data);
-            console.log('====================================');
-            console.log(response.data);
-            console.log('====================================');
         }
 
         fetchDetailTrendingMovie();
