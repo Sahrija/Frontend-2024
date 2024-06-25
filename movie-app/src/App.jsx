@@ -14,6 +14,7 @@ import Create from "./pages/movies/Create";
 import Popular from './pages/movies/Popular';
 import NowPlaying from './pages/movies/NowPlaying';
 import TopRated from './pages/movies/TopRated';
+import Detail from './pages/movies/Detail';
 
 function App() {
   const [movies, setMovies] = useState(data)
@@ -31,6 +32,7 @@ function App() {
               <Route path='now-playing' element={<NowPlaying />}></Route>
               <Route path='top-rated' element={<TopRated />}></Route>
             </Route>
+            <Route path='movie/:id' element={<Detail />} />
           </Route>
         </Routes>
       </ThemeProvider>
