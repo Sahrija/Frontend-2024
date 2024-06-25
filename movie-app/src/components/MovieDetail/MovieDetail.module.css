@@ -13,7 +13,7 @@ html{
         content: '';
         display: block;
         position: absolute;
-        inset: -1px;
+        inset: 0px;
         background: linear-gradient(0deg, white 20%, transparent);
         z-index: -21;
         pointer-events: none;
@@ -24,12 +24,16 @@ html{
 .movie_detail {
     display: flex;
     gap: 2rem;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     text-align: center;
 
     padding: 1rem;
+}
+.movie_detail__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .movie_detail__title {
@@ -45,6 +49,7 @@ html{
 }
 
 .movie_detail__description {
+    max-width: 500px;
     color: #4361ee;
     margin-bottom: 1rem;
 }
@@ -108,6 +113,7 @@ html{
 
     .movie_detail__left {
         flex:1;
+        display: block;
     }
 
     .movie_detail__right {
