@@ -20,8 +20,8 @@ export default function Popular() {
 
     return (
         <section className={styles.container}>
-            <header className=''>
-                Popular
+            <header className={styles.title}>
+                <h2>Popular</h2>
             </header>
             <div className={styles.grid}>
                 {movies.map((movie, index) =>
