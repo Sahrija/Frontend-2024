@@ -30,8 +30,8 @@ export default function Popular() {
                     <Movie key={index} movie={movie} />
                 )}
             </div>
-            <Button variant='secondary'><Link className="button" to={`?page=${page - 1}`}>Prev</Link></Button>
-            <Button variant='secondary'><Link className="button" to={`?page=${page + 1}`}>Next</Link></Button>
+            <Button variant='tertiary'><Link className="button" to={`?page=${page - 1}`}>Prev</Link></Button>
+            <Button variant='tertiary'><Link className="button" to={`?page=${page + 1}`}>Next</Link></Button>
         </section>
     )
 }
