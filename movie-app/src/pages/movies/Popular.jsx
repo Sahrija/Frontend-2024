@@ -4,7 +4,6 @@ import styles from './Popular.module.css';
 import { Link, useSearchParams } from "react-router-dom";
 
 import { fetchPopularMovies } from "../../services/moviesApi";
-import { translateMovies } from "../../../utils/movieUtils";
 import Button from "../../components/Button/Button";
 
 export default function Popular() {
@@ -15,8 +14,7 @@ export default function Popular() {
 
     useEffect(() => {
         fetchPopularMovies(page).then((res) => {
-            const movies = translateMovies(res);
-            setMovies(movies);
+            setMovies(res);
         });
     }, [page, setMovies, setSearchParams]);
 
