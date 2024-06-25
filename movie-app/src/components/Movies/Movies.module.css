@@ -57,7 +57,7 @@
     content: '';
     width: 100%;
     height: 100%;
-    background: rgba(255, 0, 0, 0.148);
+    background: rgba(255, 0, 0, 0.200);
     position: absolute;
     border-radius: 20px;
     z-index: -1;
@@ -71,7 +71,7 @@
 
 .movie__title {
     color: #4361ee;
-    font-size: 1.95rem;
+    font-size: 1.5rem;
     margin-top: 0;
     margin-bottom: 0.5rem;
 }
