@@ -2,16 +2,18 @@ import styles from './Movies.module.css';
 
 
 import Movie from '../Movie/Movie';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { fetchUpcomingMovies } from '../../services/moviesApi';
+import MoviesContext from '../../context/MoviesContext';
 
 export default function Movies() {
-    const [movies, setMovies] = useState([]);
-    useEffect(()=>{
-        fetchUpcomingMovies().then((res)=>{
-            setMovies(res)
-        });
-    }, [])
+    const {movies} = useContext(MoviesContext);
+
+    // useEffect(()=>{
+    //     fetchUpcomingMovies().then((res)=>{
+    //         setMovies(res)
+    //     });
+    // }, [])
 
     return (
         <div className={styles.container}>

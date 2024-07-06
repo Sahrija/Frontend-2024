@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import theme from '../utils/constants/theme';
 
+import MoviesContext from './context/MoviesContext';
+
 import Home from "./pages/Home";
 import Layout from './layouts/Layout';
 
@@ -16,25 +18,33 @@ import NowPlaying from './pages/movies/NowPlaying';
 import TopRated from './pages/movies/TopRated';
 import Detail from './pages/movies/Detail';
 
+
 function App() {
   const [movies, setMovies] = useState(data)
+
+  const contextValue = {
+    movies,
+    setMovies
+  }
 
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <Routes>
-          <Route path='/' element={<Layout />}>
-            <Route index element={<Home movies={movies} setMovies={setMovies} />} />
-            <Route path='movies' >
-              <Route index element={<Home movies={movies} setMovies={setMovies} />} />
-              <Route path='create' element={<Create />}></Route>
-              <Route path='popular' element={<Popular movies={movies} setMovies={setMovies} />}></Route>
-              <Route path='now-playing' element={<NowPlaying />}></Route>
-              <Route path='top-rated' element={<TopRated />}></Route>
+        <MoviesContext.Provider value={contextValue}>
+          <Routes>
+            <Route path='/' element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path='movies' >
+                <Route index element={<Home />} />
+                <Route path='create' element={<Create />}></Route>
+                <Route path='popular' element={<Popular />}></Route>
+                <Route path='now-playing' element={<NowPlaying />}></Route>
+                <Route path='top-rated' element={<TopRated />}></Route>
+              </Route>
+              <Route path='movie/:id' element={<Detail />} />
             </Route>
-            <Route path='movie/:id' element={<Detail />} />
-          </Route>
-        </Routes>
+          </Routes>
+        </MoviesContext.Provider>
       </ThemeProvider>
     </BrowserRouter>
   )

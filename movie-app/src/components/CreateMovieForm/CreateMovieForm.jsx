@@ -1,12 +1,16 @@
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import styles from './CreateMovieForm.module.css';
 import ValidityMessage from '../Form/ValidityMessage';
+import Button from '../Button/Button';
 
-export default function CreateMovieForm({ moviesState }) {
+export default function CreateMovieForm() {
 
-  const [movies, setMovies] = moviesState;
+  const [movies, setMovies] = useState([]);
   const defaultPoster = 'https://dummyimage.com/291.100x435.104/e0e0e0/696969';
+  const navigation = useNavigate();
+
 
   const [inputs, setInputs] = useState(
     {
@@ -66,13 +70,15 @@ export default function CreateMovieForm({ moviesState }) {
     inputs.genre.value = '';
   }
 
-  function submitHandler() {
+  function handleSubmit() {
     event.preventDefault();
     const { title, year, genre, posterUrl } = inputs;
 
     createNewMovie(title.value, year.value, genre.value, posterUrl.value)
 
     resetFormInputs();
+
+    navigation('/')
   }
 
   return (
@@ -81,7 +87,7 @@ export default function CreateMovieForm({ moviesState }) {
         <header className={styles.header}>
           <h2>Add Movie</h2>
         </header>
-        <form onSubmit={submitHandler} className={styles.form} action="">
+        <form onSubmit={handleSubmit} className={styles.form} action="">
           <div className={styles.form__left}>
             <label htmlFor="image" className={styles.form__input_file_label}
             ><img src={inputs.posterUrl.value || defaultPoster} alt="image preview" className={styles.form__image_preview} /></label>
@@ -143,7 +149,7 @@ export default function CreateMovieForm({ moviesState }) {
                 Genre must be selected
               </ValidityMessage>
             </div>
-            <button className={styles.form__button} type="submit">Add New Movie</button>
+            <Button className={styles.form__button} type="submit">Add New Movie</Button>
           </div>
         </form>
       </section>

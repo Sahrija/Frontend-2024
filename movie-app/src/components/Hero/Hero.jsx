@@ -24,8 +24,6 @@ export default function Hero() {
             dialogRef.current.showModal();
         } else {
             dialogRef.current.close();
-
-            // TODO: stop the video trailer on dialog close
         }
     }, [isPlaying])
 
@@ -56,7 +54,6 @@ export default function Hero() {
     }, []);
 
     return (
-
         <div className={styles.container}
             style={{ backgroundImage: `url(${leadingBackdropUrl + movie.backdrop_path})` }}>
             <section className={styles.hero}>
