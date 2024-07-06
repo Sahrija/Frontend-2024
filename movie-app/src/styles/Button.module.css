@@ -1,0 +1,14 @@
+.primary {
+    color: blue;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: medium;
+}
+
+.success{
+    background-color: limegreen;
+}

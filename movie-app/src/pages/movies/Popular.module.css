@@ -1,0 +1,14 @@
+.container{
+    margin: auto;
+    max-width: 1400px;
+    padding: 2rem;
+}
+
+.title{font-size: 1.5rem; color: #4361ee;}
+
+.grid{
+    /* background: red; */
+    display: grid;
+    grid-template-columns:  repeat(auto-fill, minmax(250px, 1fr)) ;
+    /* gap: 0.5rem;     */
+}
