@@ -31,8 +31,7 @@ export async function fetchUpcomingMovies(page = 1) {
 }
 
 export async function fetchMovie(id) {
-  const params = `?api_key=${API_KEY}&append_to_response=videos`;
-  const url = `https://api.themoviedb.org/3/movie/${id}${params}`;
-  const response = await axios(url);
+  const url = `https://api.themoviedb.org/3/movie/${id}?append_to_response=videos`;
+  const response = await axios(url, config);
   return response.data;
 }
