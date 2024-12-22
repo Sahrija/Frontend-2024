@@ -1,5 +1,5 @@
-# frontend-engineer
-Frontend Engineer
+# Grand Theater app
+![image](https://github.com/user-attachments/assets/5c2b6fb7-8a4c-4c74-a2dd-0f0114a5c065)
 
 ## Run
 
